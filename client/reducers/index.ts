@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux'
 
-import fruits from './fruits'
+import subjectReducer from './subjects'
+import styleReducer from './styles'
+import wildcardReducer from './wildcards'
 
 export default combineReducers({
-  fruits,
+  subjects: subjectReducer,
+  styles: styleReducer,
+  wildcards: wildcardReducer,
 })
