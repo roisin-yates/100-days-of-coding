@@ -7,15 +7,15 @@ import { SET_PENDING_ENTRIES, SET_ERROR } from '../actions/styles'
 import { Wildcards } from '../../models/wildcards'
 
 export interface WildcardState {
-  loading: boolean
-  error: string | undefined
-  data: Wildcards[] | Wildcards
+  wildcardLoading: boolean
+  wildcardError: string | undefined
+  wildcardData: Wildcards[] | Wildcards
 }
 
 const initialState: WildcardState = {
-  loading: false,
-  error: undefined,
-  data: [],
+  wildcardLoading: false,
+  wildcardError: undefined,
+  wildcardData: [],
 }
 
 const wildcardReducer = (
@@ -25,27 +25,27 @@ const wildcardReducer = (
   switch (action.type) {
     case SET_PENDING_ENTRIES:
       return {
-        loading: true,
-        error: undefined,
-        data: [],
+        wildcardLoading: true,
+        wildcardError: undefined,
+        wildcardData: [],
       }
     case SET_ERROR:
       return {
-        loading: false,
-        error: action.payload,
-        data: [],
+        wildcardLoading: false,
+        wildcardError: action.payload,
+        wildcardData: [],
       }
     case SET_WILDCARDS_SUCCESS:
       return {
-        loading: false,
-        error: undefined,
-        data: action.payload,
+        wildcardLoading: false,
+        wildcardError: undefined,
+        wildcardData: action.payload,
       }
     case SET_WILDCARD_SUCCESS:
       return {
-        loading: false,
-        error: undefined,
-        data: action.payload,
+        wildcardLoading: false,
+        wildcardError: undefined,
+        wildcardData: action.payload,
       }
     default:
       return state

@@ -8,15 +8,15 @@ import {
 import { Styles } from '../../models/styles'
 
 export interface StyleState {
-  loading: boolean
-  error: string | undefined
-  data: Styles[] | Styles
+  styleLoading: boolean
+  styleError: string | undefined
+  styleData: Styles[] | Styles
 }
 
 const initialState: StyleState = {
-  loading: false,
-  error: undefined,
-  data: [],
+  styleLoading: false,
+  styleError: undefined,
+  styleData: [],
 }
 
 const styleReducer = (
@@ -26,27 +26,27 @@ const styleReducer = (
   switch (action.type) {
     case SET_PENDING_ENTRIES:
       return {
-        loading: true,
-        error: undefined,
-        data: [],
+        styleLoading: true,
+        styleError: undefined,
+        styleData: [],
       }
     case SET_ERROR:
       return {
-        loading: false,
-        error: action.payload,
-        data: [],
+        styleLoading: false,
+        styleError: action.payload,
+        styleData: [],
       }
     case SET_STYLES_SUCCESS:
       return {
-        loading: false,
-        error: undefined,
-        data: action.payload,
+        styleLoading: false,
+        styleError: undefined,
+        styleData: action.payload,
       }
     case SET_STYLE_SUCCESS:
       return {
-        loading: false,
-        error: undefined,
-        data: action.payload,
+        styleLoading: false,
+        styleError: undefined,
+        styleData: action.payload,
       }
     default:
       return state
