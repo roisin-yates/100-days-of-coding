@@ -1,7 +1,7 @@
 import {
   SET_PENDING_ENTRIES,
   SET_ERROR,
-  SET_STYLES_SUCCESS,
+  SET_STYLE_SUCCESS,
   StyleAction,
 } from '../actions/styles'
 import { Styles } from '../../models/styles'
@@ -9,7 +9,7 @@ import { Styles } from '../../models/styles'
 export interface StyleState {
   styleLoading: boolean
   styleError: string | undefined
-  styleData: Styles[]
+  styleData: Styles | Styles[]
 }
 
 const initialState: StyleState = {
@@ -18,7 +18,7 @@ const initialState: StyleState = {
   styleData: [],
 }
 
-const stylesReducer = (
+const styleReducer = (
   state = initialState,
   action: StyleAction
 ): StyleState => {
@@ -35,7 +35,7 @@ const stylesReducer = (
         styleError: action.payload,
         styleData: [],
       }
-    case SET_STYLES_SUCCESS:
+    case SET_STYLE_SUCCESS:
       return {
         styleLoading: false,
         styleError: undefined,
@@ -46,4 +46,4 @@ const stylesReducer = (
   }
 }
 
-export default stylesReducer
+export default styleReducer

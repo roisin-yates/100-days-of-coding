@@ -1,11 +1,12 @@
-import { SET_SUBJECTS_SUCCESS, SubjectAction } from '../actions/subjects'
 import { SET_PENDING_ENTRIES, SET_ERROR } from '../actions/styles'
 import { Subjects } from '../../models/subjects'
+
+import { SET_SUBJECT_SUCCESS, SubjectAction } from '../actions/subjects'
 
 export interface SubjectState {
   subjectLoading: boolean
   subjectError: string | undefined
-  subjectData: Subjects[]
+  subjectData: Subjects | Subjects[]
 }
 
 const initialState: SubjectState = {
@@ -14,7 +15,7 @@ const initialState: SubjectState = {
   subjectData: [],
 }
 
-const subjectsReducer = (
+const styleReducer = (
   state = initialState,
   action: SubjectAction
 ): SubjectState => {
@@ -31,16 +32,15 @@ const subjectsReducer = (
         subjectError: action.payload,
         subjectData: [],
       }
-    case SET_SUBJECTS_SUCCESS:
+    case SET_SUBJECT_SUCCESS:
       return {
         subjectLoading: false,
         subjectError: undefined,
         subjectData: action.payload,
       }
-
     default:
       return state
   }
 }
 
-export default subjectsReducer
+export default styleReducer

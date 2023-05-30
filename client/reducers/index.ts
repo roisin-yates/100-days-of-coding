@@ -1,11 +1,16 @@
 import { combineReducers } from 'redux'
-
-import subjectReducer from './subjects'
-import styleReducer from './styles'
-import wildcardReducer from './wildcards'
+import subjectsReducer from './subjects'
+import subjectReducer from './subject'
+import stylesReducer from './styles'
+import styleReducer from './style'
+import wildcardReducer from './wildcard'
+import wildcardsReducer from './wildcards'
 
 export default combineReducers({
-  subjects: subjectReducer,
-  styles: styleReducer,
-  wildcards: wildcardReducer,
+  subject: subjectReducer,
+  subjects: subjectsReducer,
+  styles: stylesReducer,
+  style: styleReducer,
+  wildcard: wildcardReducer,
+  wildcards: wildcardsReducer,
 })

@@ -1,15 +1,12 @@
-import {
-  SET_WILDCARDS_SUCCESS,
-  SET_WILDCARD_SUCCESS,
-  WildcardAction,
-} from '../actions/wildcards'
 import { SET_PENDING_ENTRIES, SET_ERROR } from '../actions/styles'
 import { Wildcards } from '../../models/wildcards'
+
+import { SET_WILDCARD_SUCCESS, WildcardAction } from '../actions/wildcards'
 
 export interface WildcardState {
   wildcardLoading: boolean
   wildcardError: string | undefined
-  wildcardData: Wildcards[]
+  wildcardData: Wildcards | Wildcards[]
 }
 
 const initialState: WildcardState = {
@@ -18,7 +15,7 @@ const initialState: WildcardState = {
   wildcardData: [],
 }
 
-const wildcardsReducer = (
+const wildcardReducer = (
   state = initialState,
   action: WildcardAction
 ): WildcardState => {
@@ -35,7 +32,7 @@ const wildcardsReducer = (
         wildcardError: action.payload,
         wildcardData: [],
       }
-    case SET_WILDCARDS_SUCCESS:
+    case SET_WILDCARD_SUCCESS:
       return {
         wildcardLoading: false,
         wildcardError: undefined,
@@ -46,4 +43,4 @@ const wildcardsReducer = (
   }
 }
 
-export default wildcardsReducer
+export default wildcardReducer
