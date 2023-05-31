@@ -1,3 +1,4 @@
+import { Styles } from '../../models/styles'
 import { getSingleStyle } from '../actions/styles'
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { useEffect } from 'react'
@@ -29,7 +30,7 @@ const Style = ({ numbers, setError, setLoading }: Numbers) => {
   return (
     <div>
       {styleData &&
-        styleData.map((item) => {
+        styleData.map((item: Styles) => {
           return (
             <p key={item.id} className="text-teal-600">
               {item.name}
